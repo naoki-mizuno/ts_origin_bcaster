@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="ts_origin_bcaster" type="ts_origin_provider_node.py" name="ts_origin_provider" >
+    <rosparam command="load" file="$(find ts_origin_bcaster)/config/sample.yaml" />
+  </node>
+
+  <node name="broadcaster" pkg="ts_origin_bcaster" type="ts_origin_bcaster_node.py" output="screen" />
+</launch>

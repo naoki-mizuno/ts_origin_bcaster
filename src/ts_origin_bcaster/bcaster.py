@@ -11,14 +11,6 @@ from ts_origin_bcaster.tf_utils import TFUtils
 class Bcaster:
     def __init__(self):
         self.tf_static = tf2_ros.StaticTransformBroadcaster()
-        self.gnss_sub = rospy.Subscriber('gnss_gref',
-                                         GroundRef,
-                                         self.gnss_cb,
-                                         queue_size=1)
-        self.ts_sub = rospy.Subscriber('ts_gref',
-                                       GroundRef,
-                                       self.ts_cb,
-                                       queue_size=1)
         self.gps_origin_frame_id = rospy.get_param('~gps_origin_frame_id',
                                                    'gps_origin')
         self.ts_origin_frame_id = rospy.get_param('~ts_origin_frame_id',
@@ -31,6 +23,15 @@ class Bcaster:
         # Ground reference coordinate values
         self.gnss_gref = None
         self.ts_gref = None
+
+        self.gnss_sub = rospy.Subscriber('gnss_gref',
+                                         GroundRef,
+                                         self.gnss_cb,
+                                         queue_size=1)
+        self.ts_sub = rospy.Subscriber('ts_gref',
+                                       GroundRef,
+                                       self.ts_cb,
+                                       queue_size=1)
 
     def gnss_cb(self, msg):
         self.gnss_gref = msg

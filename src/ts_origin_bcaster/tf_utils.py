@@ -1,6 +1,5 @@
 #!/usr/bin/env python2
 
-import tf2_ros
 import tf.transformations
 from geometry_msgs.msg import Transform, Point
 import numpy as np
@@ -109,4 +108,3 @@ class TFUtils:
             return msg
         else:
             return tf_mat
-

@@ -15,6 +15,7 @@ class Bcaster:
                                                    'gps_origin')
         self.ts_origin_frame_id = rospy.get_param('~ts_origin_frame_id',
                                                   'total_station')
+        self.publish_gref = rospy.get_param('~publish_gref', False)
         self.src_epsg = rospy.get_param('~src_epsg', 4326)
         # Japan Plane Rectangular CS X (JGD2011)
         self.tgt_epsg = rospy.get_param('~tgt_epsg', 6678)
@@ -78,8 +79,11 @@ class Bcaster:
         t.header.frame_id = self.gps_origin_frame_id
         t.child_frame_id = self.ts_origin_frame_id
         t.transform = gnss_to_ts
-        self.tf_static.sendTransform([t, tform_gnss, tform_ts])
-        #self.tf_static.sendTransform(t)
+        tforms = [t]
+        if self.publish_gref:
+            tforms.append(tform_gnss)
+            tforms.append(tform_ts)
+        self.tf_static.sendTransform(tforms)
 
     def __convert_llh_point__(self, llh_point):
         """

@@ -9,5 +9,5 @@
 !nodes/
 !src/
 !src/*
-!configs/
+!config/
 !launch/

@@ -1,7 +1,16 @@
 # ts_origin_bcaster
 
-Calculates GNSS coordinates the origin of the Total Station by measuring three
-points on the ground using the TS and GNSS.
+Calculates the origin of the Total Station in the GNSS coordinate system by
+measuring three points on the ground with the Total Station and GNSS.
+
+
+## Usage
+
+```
+$ roslaunch ts_origin_bcaster ts_origin_bcaster_node.launch
+```
+
+Take a look at `config/sample.yaml` to see how to use it.
 
 
 ## License

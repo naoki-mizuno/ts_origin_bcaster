@@ -3,6 +3,7 @@
 !*.py
 !*.yaml
 !*.launch
+!*.msg
 !CMakeLists.txt
 !package.xml
 !README.md
@@ -11,3 +12,4 @@
 !src/*
 !config/
 !launch/
+!msg/

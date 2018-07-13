@@ -6,6 +6,10 @@ measuring three points on the ground with the Total Station and GNSS.
 
 ## Usage
 
+### Requirements
+
+- `gdal`: In Ubuntu, provided as `python-gdal` or `python3-gdal` package
+
 ```
 $ roslaunch ts_origin_bcaster ts_origin_bcaster_node.launch
 ```
